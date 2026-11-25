@@ -80,6 +80,8 @@ function img(i){const t=val(i),c=document.createElement('canvas');c.width=c.heig
 function val(i){const t=$('inp').value.trim()||'محمد';return S[cur][i][1](t)}
 async function cp(b,i){const v=val(i);try{await navigator.clipboard.writeText(v)}catch(e){const a=document.createElement('textarea');a.value=v;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
  b.textContent='اتنسخ ✓';b.classList.add('ok');setTimeout(()=>{b.textContent='نسخ';b.classList.remove('ok')},1200)}
+function shareLink(){const t=$('inp').value.trim();if(!t){alert('اكتب الاسم الأول');return}const u=location.origin+location.pathname+'?n='+encodeURIComponent(t);const m='شوف اسم "'+t+'" بعشرات الزخارف 👇\n'+u;if(navigator.share){navigator.share({title:'زخرفها',text:m}).catch(()=>{});return}window.open('https://wa.me/?text='+encodeURIComponent(m),'_blank')}
+(function(){const b=document.createElement('button');b.textContent='🔗 ابعت لينك بالاسم ده لصاحبك';b.style.cssText='margin-top:8px;width:100%;padding:10px;border:0;border-radius:10px;background:#25d366;color:#04210f;font:inherit;font-weight:700;cursor:pointer';b.onclick=shareLink;$('inp').insertAdjacentElement('afterend',b)})();
 try{$('inp').value=new URLSearchParams(location.search).get('n')||localStorage.getItem('zk')||''}catch(e){}
 render();
 </script></body></html>
