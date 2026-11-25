@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>زخرفها - زخرفة الأسماء والنصوص للبايو والواتساب</title>
+<meta name="description" content="اكتب اسمك عربي أو إنجليزي وخد عشرات الزخارف: كشيدة، إطارات، رموز، وخطوط إنجليزي شيك. انسخ وحط في البايو أو الواتساب أو ألعاب الموبايل.">
+<meta property="og:title" content="زخرفها - زخرفة الأسماء والنصوص"><meta property="og:description" content="عشرات الزخارف للاسم العربي والإنجليزي بضغطة نسخ."><meta property="og:type" content="website">
+<meta name="theme-color" content="#0891b2">
+<style>
+:root{--pri:#0891b2;--ink:#0f172a;--bg:#ecfeff;--mut:#64748b}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,"Segoe UI",Tahoma,Arial,sans-serif;padding-bottom:30px}
+header{background:linear-gradient(135deg,#0891b2,#4f46e5);color:#fff;text-align:center;padding:16px 12px 40px}
+header h1{margin:0;font-size:28px}header p{margin:4px 0 0;font-size:14px;opacity:.92}
+main{max-width:600px;margin:-28px auto 0;padding:0 12px}
+.card{background:#fff;border-radius:16px;padding:14px;margin:12px 0;box-shadow:0 2px 10px #0001}
+#inp{width:100%;font:inherit;font-size:20px;padding:12px;border:2px solid #a5f3fc;border-radius:12px;color:var(--ink)}
+#inp:focus{outline:none;border-color:var(--pri)}
+.tabs{display:flex;gap:8px;overflow-x:auto;margin-top:10px}
+.tb{flex:0 0 auto;border:0;background:#cffafe;border-radius:99px;padding:8px 14px;font:inherit;cursor:pointer;color:var(--ink)}
+.tb.on{background:var(--pri);color:#fff;font-weight:700}
+.it{display:flex;gap:8px;align-items:center;justify-content:space-between;border-bottom:1px dashed #e2e8f0;padding:10px 0}
+.it .t{flex:1;font-size:20px;word-break:break-word;line-height:1.7}
+.it .n{font-size:11px;color:var(--mut);display:block}
+.cp{border:0;background:var(--pri);color:#fff;border-radius:10px;padding:8px 14px;font:inherit;font-weight:700;cursor:pointer;flex:0 0 auto}
+.cp.ok{background:#16a34a}
+.sh{display:flex;gap:6px;margin-top:6px}.sh button{border:0;background:#25d366;color:#fff;border-radius:8px;padding:5px 10px;font:inherit;font-size:12px;cursor:pointer}
+.mut{color:var(--mut);font-size:13px}
+.fav{background:#fef9c3}
+</style></head><body>
+<header><h1>✨ زخرفها</h1><p>اسمك بزخرفة تخطف العين، انسخ وحط</p></header>
+<main>
+<div class="card"><input id="inp" placeholder="اكتب اسمك أو أي نص (عربي أو English)" maxlength="40" oninput="render()">
+<div class="tabs" id="tabs"></div></div>
+<div class="card" id="out"></div>
+<div class="card mut">كل الزخارف رموز يونيكود عادية، تتنسخ وتتلصق في واتساب وإنستجرام وتيك توك وبايو ألعاب الموبايل. بعض التطبيقات ممكن تعرض رمز كمربع حسب خط الجهاز.</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const kash=t=>t.replace(/([\u0628\u062A\u062B\u062C\u062D\u062E\u0633\u0634\u0635\u0636\u0637\u0638\u0639\u063A\u0641\u0642\u0643\u0644\u0645\u0646\u0647\u064A\u0626\u0649])(?=[\u0621-\u064A])/g,'$1ـ');
+const kash2=t=>t.replace(/([\u0628\u062A\u062B\u062C\u062D\u062E\u0633\u0634\u0635\u0636\u0637\u0638\u0639\u063A\u0641\u0642\u0643\u0644\u0645\u0646\u0647\u064A\u0626\u0649])(?=[\u0621-\u064A])/g,'$1ـــ');
+const tash=t=>t.replace(/([\u0621-\u064A])/g,'$1\u064E');
+const sp=t=>[...t].join(' ');
+const EX={0x1D434:{},0x1D49C:{B:'ℬ',E:'ℰ',F:'ℱ',H:'ℋ',I:'ℐ',L:'ℒ',M:'ℳ',R:'ℛ',e:'ℯ',g:'ℊ',o:'ℴ'},0x1D504:{C:'ℭ',H:'ℌ',I:'ℑ',R:'ℜ',Z:'ℨ'},0x1D538:{C:'ℂ',H:'ℍ',N:'ℕ',P:'ℙ',Q:'ℚ',R:'ℝ',Z:'ℤ'}};
+function mapL(t,up,lo,dg){const ex=Object.assign({},EX[up]||{},up===0x1D434?{h:'ℎ'}:{});return [...t].map(c=>{if(ex[c])return ex[c];const k=c.charCodeAt(0);if(k>=65&&k<=90&&up!=null)return String.fromCodePoint(up+k-65);if(k>=97&&k<=122&&lo!=null)return String.fromCodePoint(lo+k-97);if(k>=48&&k<=57&&dg!=null)return String.fromCodePoint(dg+k-48);return c}).join('')}
+const CIRCLE=t=>[...t].map(c=>{const k=c.charCodeAt(0);if(k>=65&&k<=90)return String.fromCodePoint(0x24B6+k-65);if(k>=97&&k<=122)return String.fromCodePoint(0x24D0+k-97);if(k>=49&&k<=57)return String.fromCodePoint(0x2460+k-49);return c}).join('');
+const SQ=t=>[...t].map(c=>{const k=c.toUpperCase().charCodeAt(0);if(/[a-z]/i.test(c))return String.fromCodePoint(0x1F130+k-65);return c}).join('');
+const SMALL={a:'ᴀ',b:'ʙ',c:'ᴄ',d:'ᴅ',e:'ᴇ',f:'ꜰ',g:'ɢ',h:'ʜ',i:'ɪ',j:'ᴊ',k:'ᴋ',l:'ʟ',m:'ᴍ',n:'ɴ',o:'ᴏ',p:'ᴘ',q:'ǫ',r:'ʀ',s:'ꜱ',t:'ᴛ',u:'ᴜ',v:'ᴠ',w:'ᴡ',x:'x',y:'ʏ',z:'ᴢ'};
+const smallcaps=t=>[...t].map(c=>SMALL[c.toLowerCase()]||c).join('');
+const flip={a:'ɐ',b:'q',c:'ɔ',d:'p',e:'ǝ',f:'ɟ',g:'ƃ',h:'ɥ',i:'ᴉ',j:'ɾ',k:'ʞ',l:'l',m:'ɯ',n:'u',o:'o',p:'d',q:'b',r:'ɹ',s:'s',t:'ʇ',u:'n',v:'ʌ',w:'ʍ',x:'x',y:'ʎ',z:'z'};
+const upside=t=>[...t.toLowerCase()].map(c=>flip[c]||c).reverse().join('');
+const S={
+ 'ar':[
+  ['كشيدة خفيفة',t=>kash(t)],['كشيدة طويلة',t=>kash2(t)],['بحركات',t=>tash(t)],['متباعد',t=>sp(t)],
+  ['إطار ملكي',t=>'꧁༺ '+t+' ༻꧂'],['إطار نجوم',t=>'★彡 '+t+' 彡★'],['إطار قلوب',t=>'♡ '+t+' ♡'],['إطار تاج',t=>'♛ '+t+' ♛'],
+  ['زخرفة جانبية',t=>'ـ٭ـ'+t+'ـ٭ـ'],['أقواس',t=>'『'+t+'』'],['نقاط',t=>'•°•'+t+'•°•'],['ورد',t=>'🌹 '+t+' 🌹'],['شمس وقمر',t=>'☀️ '+t+' 🌙'],['أجنحة',t=>'꧁༒ '+t+' ༒꧂'],['خط تحت',t=>'▂▃▅▆ '+t+' ▆▅▃▂'],['زهور',t=>'✿❀ '+kash(t)+' ❀✿'],['فاخر',t=>'⸻ '+t+' ⸻'],['نبض',t=>'💗 '+kash2(t)+' 💗'],['خنجر',t=>'†☆ '+t+' ☆†'],['ملاك',t=>'ღ '+kash(t)+' ღ'],
+  ['سهم',t=>'➳ '+t+' ➳'],['ماسة',t=>'◈ '+t+' ◈'],['نار',t=>'🔥 '+t+' 🔥'],['كشيدة + إطار',t=>'꧁ '+kash2(t)+' ꧂'],
+  ['مفضلة: اسم رسمي',t=>'『 '+kash(t)+' 』'],['وردة وكشيدة',t=>'❀ '+kash2(t)+' ❀'],['نجمة وقمر',t=>'☪ '+t+' ☪'],['ملكي ملكي',t=>'👑 '+kash(t)+' 👑']],
+ 'en':[
+  ['Bold',t=>mapL(t,0x1D400,0x1D41A,0x1D7CE)],['Italic',t=>mapL(t,0x1D434,0x1D44E)],['Bold Italic',t=>mapL(t,0x1D468,0x1D482)],
+  ['Script',t=>mapL(t,0x1D49C,0x1D4B6)],['Bold Script',t=>mapL(t,0x1D4D0,0x1D4EA)],['Fraktur',t=>mapL(t,0x1D504,0x1D51E)],
+  ['Double',t=>mapL(t,0x1D538,0x1D552,0x1D7D8)],['Mono',t=>mapL(t,0x1D670,0x1D68A,0x1D7F6)],['Sans Bold',t=>mapL(t,0x1D5D4,0x1D5EE,0x1D7EC)],
+  ['دوائر',CIRCLE],['مربعات',SQ],['Small Caps',smallcaps],['مقلوب',upside],
+  ['إطار ملكي',t=>'꧁༺ '+mapL(t,0x1D4D0,0x1D4EA)+' ༻꧂'],['نجوم',t=>'★彡 '+mapL(t,0x1D400,0x1D41A)+' 彡★'],['قلوب',t=>'♡ '+mapL(t,0x1D49C,0x1D4B6)+' ♡'],['تاج',t=>'♛ '+smallcaps(t)+' ♛'],['متباعد',t=>sp(mapL(t,0x1D400,0x1D41A))]]
+};
+let tab='auto',cur='ar';let FV=[];try{FV=JSON.parse(localStorage.getItem('zkf')||'[]')}catch(e){}
+const tabs=[['ar','عربي'],['en','English']];
+function isAr(t){return /[\u0600-\u06FF]/.test(t)}
+function render(){const t=$('inp').value.trim()||'محمد';const ar=$('inp').value.trim()?isAr(t):true;if(tab==='auto')cur=ar?'ar':'en';else cur=tab;
+ $('tabs').innerHTML=[['auto','تلقائي'],['ar','عربي'],['en','English']].map(([k,n])=>`<button class="tb ${tab===k?'on':''}" onclick="tab='${k}';render()">${n}</button>`).join('');
+ const ord=S[cur].map((x,i)=>i).sort((a,b)=>(FV.includes(cur+b)?1:0)-(FV.includes(cur+a)?1:0));$('out').innerHTML=ord.map(i=>{const [n,f]=S[cur][i];let r;try{r=f(t)}catch(e){r=t}return`<div class="it"><div class="t">${esc(r)}<span class="n">${n}</span></div><div style="display:flex;flex-direction:column;gap:6px;align-items:stretch"><button class="cp" onclick="cp(this,${i})">نسخ</button><div class="sh"><button onclick="wa(${i})">واتساب</button><button style="background:${FV.includes(cur+i)?'#f59e0b':'#94a3b8'}" onclick="fav(${i})">${FV.includes(cur+i)?'★':'☆'}</button></div></div></div>`}).join('');
+ try{localStorage.setItem('zk',$('inp').value)}catch(e){}}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function fav(i){const k=cur+i,x=FV.indexOf(k);x<0?FV.push(k):FV.splice(x,1);try{localStorage.setItem('zkf',JSON.stringify(FV))}catch(e){}render()}
+function wa(i){window.open('https://wa.me/?text='+encodeURIComponent(val(i)),'_blank')}
+function val(i){const t=$('inp').value.trim()||'محمد';return S[cur][i][1](t)}
+async function cp(b,i){const v=val(i);try{await navigator.clipboard.writeText(v)}catch(e){const a=document.createElement('textarea');a.value=v;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ b.textContent='اتنسخ ✓';b.classList.add('ok');setTimeout(()=>{b.textContent='نسخ';b.classList.remove('ok')},1200)}
+try{$('inp').value=new URLSearchParams(location.search).get('n')||localStorage.getItem('zk')||''}catch(e){}
+render();
+</script></body></html>
